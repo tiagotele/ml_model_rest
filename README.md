@@ -16,7 +16,7 @@ docker build -t tiagotele/my_ml_model:1.0 .
 
 ## Running docker image available on DockerHub.
 ```
-#docker run  --name my_ml_app -p 8000:8000 -t tiagotele/my_ml_model:1.0
+docker run  --name my_ml_app -p 8000:8000 -t tiagotele/my_ml_model:1.0
 ```
 
 ## Pushing to DockerHub
