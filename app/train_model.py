@@ -5,7 +5,12 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 import numpy as np
 import pickle
+import os
 
+# Change work dir to be where the script is exectued ("app" folder).
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
 
 def train(X,y):
 
@@ -31,5 +36,7 @@ if __name__ == '__main__':
     
     # serialize model
     file = open('iris.mdl',"wb")
+    print("File ", file.name, " saved")
+
     pickle.dump(mdl, file)
     file.close()
