@@ -5,6 +5,7 @@ import pickle
 from pydantic import BaseSettings
 from fastapi.openapi.utils import get_openapi
 
+APP_VERSION="1.0.1"
 
 # Change work dir to be where the script is exectued ("app" folder).
 abspath = os.path.abspath(__file__)
@@ -25,7 +26,7 @@ def custom_openapi():
         return app.openapi_schema
     openapi_schema = get_openapi(
         title="Machine Learning REST Endpoint",
-        version="1.0.0",
+        version=APP_VERSION,
         description="API to consume ML service.",
         routes=app.routes,
     )
