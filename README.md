@@ -7,7 +7,7 @@ Next sessions show details about how to build/run.
 ## Requirements
 To successfully take advantage of this repo is required have a machine with
 - Python 3.9 installed. If you have 3.x, make sure to change python version on  [`pipeline.sh`](pipeline.sh) .
-_ Install python dependencies available on [`requirements`](app/requirements.txt) file.
+- Install python dependencies available on [`requirements`](app/requirements.txt) file.
 - Docker installed. Dockerhub account is desirable if you wish deploy docker image there.
 
 ## How to Run
@@ -44,7 +44,7 @@ You can access after running a docker image on the address just access the [/doc
 
 The above image represents and initial AWS Architecture for this ML Rest service.
 
-There is four main blocks on gray background. They have its own purpose.
+There are the main blocks on gray background. They have its own purpose.
 
 ### IaC Module
 The infrastructure as a code module is in charge of build the whole infrastructure and AWS components. It can be done with Terraform or AWS Cloudformation.
