@@ -4,6 +4,12 @@ This repo runs a ML model on REST api using FastAPI.
 The model used the iris dataset and was trained with KNN algorithm, where n = 3.
 Next sessions show details about how to build/run.
 
+## Requirements
+To successfully take advantage of this repo is required have a machine with
+- Python 3.9 installed. If you have 3.x, make sure to change python version on  [`pipeline.sh`](pipeline.sh) .
+_ Install python dependencies available on [`requirements`](app/requirements.txt) file.
+- Docker installed. Dockerhub account is desirable if you wish deploy docker image there.
+
 ## How to Run
 ```
 ./pipeline.sh
@@ -11,22 +17,26 @@ Next sessions show details about how to build/run.
 
 ## Building docker image
 ```
-docker build -t tiagotele/my_ml_model:1.0 .
+docker build -t tiagotele/my_ml_model:1.1 .
 ```
 
 ## Running docker image available on DockerHub.
 ```
-docker run  --name my_ml_app -p 8000:8000 -t tiagotele/my_ml_model:1.0
+docker run  --name my_ml_app -p 8000:8000 -t tiagotele/my_ml_model:1.1
 ```
 
 ## Pushing to DockerHub
 ```
 docker login 
-docker push tiagotele/my_ml_model:1.0
+docker push tiagotele/my_ml_model:1.1
 ```
 
 ## Docker image
 Docker image are available at [DockerHub](https://hub.docker.com/repository/docker/tiagotele/my_ml_model).
+
+## Swagger documentation
+The Swagger documentation is available at /docs endpoint of this app. 
+You can access after running a docker image on the address just access the [/doc endpoint](http://localhost:8000/docs).
 
 ## AWS Architecture
 
