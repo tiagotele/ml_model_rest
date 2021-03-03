@@ -42,14 +42,15 @@ The infrastructure as a code module is in charge of build the whole infrastructu
 ### Data Module
 Is a S3 Datalake. This data is periodically versioned(can be a folder inside the same bucket but with the most updated data) and treated as a single dataset.
 
-### The pipeline Module
+### ML Pipeline Module
 This modules is done by a EC2 Spot instance to save cost. A custom EC2 image will be build with needed packages/softwares to fetch data from S3, train a new ML model, build a new Docker image and deploy this image into a AWS Elastic Container Registry(ECR). After this new image is pushed to ECR, a AWS Lambda function will update a Dynamo table that has as key/value the S3 dataset version and ECR image version. 
 
-### The REST Api Serverless Module
-This is a REST API build on AWS Serverless stack. The AWS Cloudfront will be on edge and delivery and API Gateway that send its data api calls to AWS Lambda. This Lambda will run a Docker image existing on ECR.
 
-### Observability Stack
+### Observability Module
 Some metrics and rules will be created to continuously monitor the REST API. In case of trouble it will call AWS SNS to notify operations team on Slack Channel.
+
+### REST Api Serverless Module
+This is a REST API build on AWS Serverless stack. The AWS Cloudfront will be on edge and delivery and API Gateway that send its data api calls to AWS Lambda. This Lambda will run a Docker image existing on ECR.
 
 ### Pros and Cons of the architecture
 
